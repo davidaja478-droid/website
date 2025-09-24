@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>David Karno Wijaya — Portfolio</title>
+  <style>
+    /* ===== VARIABEL ===== */
+    :root{
+      --bg:#05060a;
+      --panel:rgba(20,20,35,0.7);
+      --blue:#00bfff;
+      --blue2:#0077ff;
+      --muted:#a0aec0;
+      --radius:18px;
+      --ff:"Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:var(--ff);
+      background:var(--bg);
+      color:#e6f6ff;
+      overflow-x:hidden;
+    }
+
+    /* ===== BACKGROUND BINTANG ===== */
+    .stars{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;left:0;
+      background:transparent;
+      z-index:-1;
+      overflow:hidden;
+    }
+    .stars span{
+      position:absolute;
+      width:2px;height:2px;
+      background:white;
+      border-radius:50%;
+      animation:twinkle 3s infinite;
+    }
+    @keyframes twinkle{
+      0%,100%{opacity:0.2}
+      50%{opacity:1}
+    }
+
+    /* ===== CONTAINER ===== */
+    .container{
+      max-width:1100px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:340px 1fr;
+      gap:28px;
+      padding:28px;
+    }
+    .card{
+      background:var(--panel);
+      border-radius:var(--radius);
+      padding:24px;
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      box-shadow:0 0 18px rgba(0,191,255,0.25);
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 28px rgba(0,191,255,0.5);
+    }
+
+    /* ===== SIDEBAR ===== */
+    .profile-pic{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      border-radius:50%; /* kalau mau kotak ganti jadi var(--radius) */
+      border:2px solid var(--blue);
+      box-shadow:0 0 25px rgba(0,191,255,0.5);
+      margin-bottom:18px;
+    }
+    .name{
+      font-size:22px;
+      font-weight:700;
+      text-align:center;
+      margin-bottom:8px;
+      color:var(--blue);
+      text-shadow:0 0 14px var(--blue);
+    }
+    .typing{
+      border-right:2px solid var(--blue);
+      display:inline-block;
+      white-space:nowrap;
+      overflow:hidden;
+    }
+    .meta{text-align:center;font-size:14px;color:var(--muted);margin:4px 0}
+
+    .contact-item{
+      display:block;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(0,191,255,0.05);
+      color:#e6f6ff;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.05);
+      transition:all .25s ease;
+    }
+    .contact-item:hover{
+      background:linear-gradient(90deg,var(--blue),var(--blue2));
+      color:#05101f;
+      transform:translateX(6px);
+      box-shadow:0 0 16px rgba(0,191,255,0.6);
+    }
+
+    /* ===== SECTION ===== */
+    section{margin-bottom:22px}
+    section h2{
+      font-size:18px;
+      margin-bottom:10px;
+      color:var(--blue);
+      text-shadow:0 0 10px var(--blue);
+    }
+    p,li{font-size:15px;color:#cfd9e8;line-height:1.6}
+    ul{padding-left:18px}
+
+    /* ===== SKILLS ===== */
+    .skill{
+      margin-bottom:12px;
+    }
+    .skill-name{
+      font-size:14px;
+      margin-bottom:6px;
+    }
+    .progress{
+      height:12px;
+      border-radius:8px;
+      background:rgba(255,255,255,0.08);
+      overflow:hidden;
+    }
+    .progress-bar{
+      height:100%;
+      background:linear-gradient(90deg,var(--blue),var(--blue2));
+      box-shadow:0 0 14px rgba(0,191,255,0.7);
+      border-radius:8px;
+    }
+
+    /* ===== HOBI & MINAT ===== */
+    .hobi-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .hobi-container ul {
+      flex: 1;
+    }
+
+    .hobi-img {
+      width: 160px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 2px solid var(--blue);
+      box-shadow: 0 0 16px rgba(0,191,255,0.5);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      text-align:center;
+      padding:20px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:900px){
+      .container{grid-template-columns:1fr}
+      .hobi-container{flex-direction:column;align-items:flex-start}
+      .hobi-img{width:100%;max-width:240px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Bintang -->
+  <div class="stars"></div>
+
+  <div class="container">
+    <!-- SIDEBAR -->
+    <aside class="card">
+      <img src="https://iili.io/KcTALKJ.jpg" alt="Foto Profil" class="profile-pic">
+      <div class="name"><span class="typing">David Karno Wijaya</span></div>
+      <div class="meta">Lahir: Batam, 09 Juni 2010</div>
+      <div class="meta">Tinggal: Perumahan Bida Kharisma Blok A-12</div>
+
+      <a href="mailto:davidaja478@gmail.com" class="contact-item">✉ davidaja478@gmail.com</a>
+      <a href="https://wa.me/6281267469998" class="contact-item">📱 081267469998</a>
+      <a href="https://www.tiktok.com/@davidwijayaa._" class="contact-item">🎵 TikTok</a>
+      <a href="https://www.instagram.com/davidwijayaa._" class="contact-item">📸 Instagram</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <section class="card">
+        <h2>🎯 Tentang Saya</h2>
+        <p>Saya adalah seorang pelajar dengan minat besar pada teknologi, otomotif, dan musik. 
+        Saya senang mengeksplorasi dunia videografi, desain, dan coding untuk mengembangkan kreativitas saya. 
+        Tujuan saya adalah menjadi seorang Software Engineer sekaligus pengusaha di bidang otomotif saya suka cewe dan bagja ganteng.</p>
+      </section>
+
+      <section class="card">
+        <h2>📘 Pendidikan</h2>
+        <ul>
+          <li>TK - SD Bina Nusantara Batam</li>
+          <li>SMP Negeri 42 Batam</li>
+          <li>SMK Negeri 7 Batam (sekarang)</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>🚀 Skill</h2>
+        <div class="skill">
+          <div class="skill-name">Editing & Videografi (80%)</div>
+          <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-name">HTML (50%)</div>
+          <div class="progress"><div class="progress-bar" style="width:50%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-name">CSS (40%)</div>
+          <div class="progress"><div class="progress-bar" style="width:40%"></div></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>🏆 Pengalaman</h2>
+        <p>Sering berpartisipasi dalam acara penting dan lomba dalam membuat videografi.</p>
+      </section>
+
+      <section class="card">
+        <h2>🎵 Hobi & Minat</h2>
+        <div class="hobi-container">
+          <ul>
+            <li>Otomotif</li>
+            <li>Musik</li>
+          </ul><a href="https://freeimage.host/"><img src="https://iili.io/KcTEJiN.jpg" alt="KcTEJiN.jpg" border="0" /></a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>💡 Cita-cita</h2>
+        <p>Ingin menjadi Software Engineer dan Pengusaha di bidang otomotif.</p>
+      </section>
+
+      <section class="card">
+        <h2>✨ Motto Hidup</h2>
+        <blockquote>"If there's something you can do today, do it. Don't wait until tomorrow." — Marc Marquez</blockquote>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    © 2025 David Karno Wijaya. All Rights Reserved.
+  </footer>
+
+  <script>
+    // ==== Bintang Random ====
+    const starsContainer=document.querySelector('.stars');
+    for(let i=0;i<80;i++){
+      const star=document.createElement('span');
+      star.style.top=Math.random()*100+'%';
+      star.style.left=Math.random()*100+'%';
+      star.style.animationDuration=(Math.random()*3+2)+'s';
+      starsContainer.appendChild(star);
+    }
+
+    // ==== Efek Typing ====
+    const text="David Karno Wijaya";
+    const typing=document.querySelector('.typing');
+    let i=0;
+    function type(){
+      if(i<text.length){
+        typing.textContent=text.slice(0,i+1);
+        i++;
+        setTimeout(type,150);
+      }else{
+        setTimeout(()=>{i=0;typing.textContent="";type();},2000);
+      }
+    }
+    type();
+  </script>
+</body>
+</html>
